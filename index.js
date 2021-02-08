@@ -10,7 +10,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(cors())
 
-app.use(express.static("public/build"))
+app.use(express.static("build"))
 
 
 app.post('/api/form',(req,res)=>{
