@@ -6,16 +6,13 @@ const multiparty = require("multiparty");
 const path =require('path')
 require("dotenv").config();
 const app=express()
-const staticFiles = express.static(path.join(__dirname + "./public/build"));
-
-app.use(staticFiles);
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(cors())
 
-// app.get("/*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "./public/build", "index.html"));
-// });
+app.use(express.static("public/build"))
+
+
 app.post('/api/form',(req,res)=>{
     let data =req.body;
     //transporter object
